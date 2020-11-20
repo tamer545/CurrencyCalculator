@@ -1,6 +1,8 @@
 package waehrungsrechner;
 
-public class WaehrungsMain {
+import waehrungsrechner.PasswordView;
+
+public class MainApplication {
 
     public static void main(String[] args) {
         new PasswordView();

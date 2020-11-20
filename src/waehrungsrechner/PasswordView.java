@@ -1,5 +1,8 @@
 package waehrungsrechner;
 
+import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
+import waehrungsrechner.fontChanger.FontChangerPresenter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -8,9 +11,10 @@ import java.awt.event.KeyEvent;
 public class PasswordView extends JFrame {
     private JPasswordField passwordField1;
     private JTextField usernameTextField;
-    private JButton loginButton;
+    private JButton loginToCurrenciesButton;
     private JPanel mainPanel;
     private JLabel wrongLoginField;
+    private JButton loginToFontChangerButton;
 
 
     public PasswordView() {
@@ -23,7 +27,7 @@ public class PasswordView extends JFrame {
         setVisible(true);
 
 
-        loginButton.addActionListener(e -> {
+        loginToCurrenciesButton.addActionListener(e -> {
 
             if (createAccount("Timo", "1234") || createAccount("Nils", "1234")) {
                 new WaehrungsPresenter(new WaehrungsView());
@@ -32,6 +36,16 @@ public class PasswordView extends JFrame {
                 wrongLoginField.setText("Wrong Login Data");
             }
         });
+        loginToFontChangerButton.addActionListener(e -> {
+
+            if (createAccount("Timo", "1234") || createAccount("Nils", "1234")) {
+                new FontChangerPresenter(new FontChangerView());
+                setVisible(false);
+            } else {
+                wrongLoginField.setText("Wrong Login Data");
+            }
+        });
+
 
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -40,14 +54,6 @@ public class PasswordView extends JFrame {
             return false;
         });
 
-        passwordField1.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    loginButton.doClick();
-                }
-            }
-        });
     }
 
     public boolean createAccount(String username, String password) {

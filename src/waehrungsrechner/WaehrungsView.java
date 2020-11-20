@@ -1,5 +1,8 @@
 package waehrungsrechner;
 
+import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
+import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
+
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -20,8 +23,8 @@ public class WaehrungsView extends JFrame {
         loggedInLabel.setText("Currently using the premium Version");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(mainPanel);
-        pack();
         setSize(700, 250);
+        pack();
         setVisible(true);
 
         comboBox2.add(new JScrollPane());

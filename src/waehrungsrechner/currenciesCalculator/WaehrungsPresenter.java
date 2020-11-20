@@ -1,4 +1,7 @@
-package waehrungsrechner;
+package waehrungsrechner.currenciesCalculator;
+
+import waehrungsrechner.WaehrungsView;
+import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
 
 public class WaehrungsPresenter {
 
