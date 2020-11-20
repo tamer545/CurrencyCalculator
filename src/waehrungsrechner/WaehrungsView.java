@@ -45,6 +45,13 @@ public class WaehrungsView extends JFrame {
                 calculateButton.doClick();
             }
         });
+        comboBox2.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                calculateButton.doClick();
+            }
+        });
     }
 
     public void setPresenter(WaehrungsPresenter presenter) {
