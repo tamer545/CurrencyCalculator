@@ -5,6 +5,7 @@ import waehrungsrechner.fontChanger.FontChangerPresenter;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class FontChangerView extends JFrame {
     private FontChangerPresenter presenter;
     private JPanel mainPanel;
@@ -20,10 +21,13 @@ public class FontChangerView extends JFrame {
         setSize(700, 250);
         setVisible(true);
 
+        fontComboBox.add(new JScrollPane());
+
         fontComboBox.addItem(FontChangerEnum.AcmeFont);
+        fontComboBox.addItem(FontChangerEnum.Bauhaus93);
 
 
-        generateTextButton.addActionListener(e -> presenter.generate(inputText.getText(), (FontChangerEnum) fontComboBox.getSelectedItem()));
+        generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
     }
     public void setPresenter(FontChangerPresenter presenter) {
         this.presenter = presenter;

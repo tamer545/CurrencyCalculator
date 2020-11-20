@@ -12,10 +12,10 @@ public class FontChangerPresenter {
         view.setPresenter(this);
     }
 
-    public void generate(String inputText, FontChangerEnum comboBoxEnum){
-
+    public void generate(FontChangerEnum comboBoxEnum){
         switch (comboBoxEnum) {
-            case AcmeFont -> view.setOutputFont(new Font("AcmeFont", Font.BOLD, 12));
+            case AcmeFont -> view.setOutputFont(new Font("AcmeFont", Font.BOLD, 14));
+            case Bauhaus93 -> view.setOutputFont(new Font("Bauhaus93", Font.BOLD, 14));
 
 
         };
