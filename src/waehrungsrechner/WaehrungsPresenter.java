@@ -22,6 +22,7 @@ public class WaehrungsPresenter {
                 case CAD -> intputWaehrung / 0.698;
                 case SKR -> intputWaehrung / 0.106;
                 case SAR -> intputWaehrung / 0.056;
+                case CNH -> intputWaehrung / 0.1390 ;
             };
             form.setWaehrung(waehrung);
         } catch (NumberFormatException e) {

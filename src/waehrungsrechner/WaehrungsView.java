@@ -34,7 +34,7 @@ public class WaehrungsView extends JFrame {
         comboBox2.addItem(WaehrungsEnum.CAD);
         comboBox2.addItem(WaehrungsEnum.SAR);
         comboBox2.addItem(WaehrungsEnum.SKR);
-
+        comboBox2.addItem(WaehrungsEnum.CNH);
 
         calculateButton.addActionListener(e -> presenter.calculate(frTextField.getText(), (WaehrungsEnum) comboBox2.getSelectedItem()));
 

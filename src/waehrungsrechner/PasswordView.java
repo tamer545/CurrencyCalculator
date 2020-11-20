@@ -37,7 +37,6 @@ public class PasswordView extends JFrame {
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 dispose();
             }
-
             return false;
         });
 
