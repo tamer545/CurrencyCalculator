@@ -28,8 +28,10 @@ public class FontChangerView extends JFrame {
         fontComboBox.add(new JScrollPane());
 
         fontComboBox.addItem(FontChangerEnum.AcmeFont);
+        fontComboBox.addItem(FontChangerEnum.AlienEncounters);
         fontComboBox.addItem(FontChangerEnum.BabyKruffy);
         fontComboBox.addItem(FontChangerEnum.Bauhaus93);
+        fontComboBox.addItem(FontChangerEnum.Brandish);
         fontComboBox.addItem(FontChangerEnum.Monospaced);
 
 
