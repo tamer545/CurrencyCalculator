@@ -22,7 +22,7 @@ public class FontChangerView extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setContentPane(mainPanel);
-        setSize(700, 250);
+        setSize(800, 250);
         setVisible(true);
 
         fontComboBox.add(new JScrollPane());
@@ -32,7 +32,13 @@ public class FontChangerView extends JFrame {
         fontComboBox.addItem(FontChangerEnum.BabyKruffy);
         fontComboBox.addItem(FontChangerEnum.Bauhaus93);
         fontComboBox.addItem(FontChangerEnum.Brandish);
+        fontComboBox.addItem(FontChangerEnum.DroidSansMono);
+        fontComboBox.addItem(FontChangerEnum.EngraversMT);
         fontComboBox.addItem(FontChangerEnum.Monospaced);
+        fontComboBox.addItem(FontChangerEnum.NeonLights);
+        fontComboBox.addItem(FontChangerEnum.Tarzan);
+        fontComboBox.addItem(FontChangerEnum.VenusRising);
+        fontComboBox.addItem(FontChangerEnum.Woodcut);
 
 
         generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
