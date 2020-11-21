@@ -26,8 +26,9 @@ public class FontChangerView extends JFrame {
         fontComboBox.add(new JScrollPane());
 
         fontComboBox.addItem(FontChangerEnum.AcmeFont);
-        fontComboBox.addItem(FontChangerEnum.Bauhaus93);
         fontComboBox.addItem(FontChangerEnum.BabyKruffy);
+        fontComboBox.addItem(FontChangerEnum.Bauhaus93);
+        fontComboBox.addItem(FontChangerEnum.Monospaced);
 
 
         generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
@@ -36,14 +37,18 @@ public class FontChangerView extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                generateTextButton.doClick();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    generateTextButton.doClick();
+                }
             }
         });
         fontComboBox.addKeyListener(new KeyAdapter() {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                generateTextButton.doClick();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    generateTextButton.doClick();
+                }
             }
         });
     }

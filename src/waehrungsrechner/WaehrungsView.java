@@ -45,14 +45,18 @@ public class WaehrungsView extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                calculateButton.doClick();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    calculateButton.doClick();
+                }
             }
         });
         comboBox2.addKeyListener(new KeyAdapter() {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                calculateButton.doClick();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    calculateButton.doClick();
+                }
             }
         });
     }

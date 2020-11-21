@@ -1,5 +1,5 @@
 package waehrungsrechner.fontChanger;
 
 public enum FontChangerEnum {
-    AcmeFont, Bauhaus93, BabyKruffy;
+    AcmeFont, Bauhaus93, BabyKruffy, Monospaced;
 }

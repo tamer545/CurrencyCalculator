@@ -54,6 +54,16 @@ public class PasswordView extends JFrame {
             return false;
         });
 
+        usernameTextField.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    passwordField1.requestFocus();
+                }
+            }
+        });
+
     }
 
     public boolean createAccount(String username, String password) {
