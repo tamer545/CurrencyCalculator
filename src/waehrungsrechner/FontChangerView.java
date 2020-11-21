@@ -4,6 +4,8 @@ import waehrungsrechner.fontChanger.FontChangerEnum;
 import waehrungsrechner.fontChanger.FontChangerPresenter;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -15,6 +17,7 @@ public class FontChangerView extends JFrame {
     private JTextField inputText;
     private JButton generateTextButton;
     private JTextField outputTextField;
+    private JButton returnToLoginButton;
 
     public FontChangerView() {
         super("Font Changer by @Timo");
@@ -32,6 +35,12 @@ public class FontChangerView extends JFrame {
 
 
         generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
+
+        returnToLoginButton.addActionListener(e -> {
+            new PasswordView();
+            setVisible(false);
+
+        });
 
         inputText.addKeyListener(new KeyAdapter() {
 
@@ -51,6 +60,7 @@ public class FontChangerView extends JFrame {
                 }
             }
         });
+
     }
     public void setPresenter(FontChangerPresenter presenter) {
         this.presenter = presenter;

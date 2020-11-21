@@ -29,7 +29,7 @@ public class PasswordView extends JFrame {
 
         loginToCurrenciesButton.addActionListener(e -> {
 
-            if (createAccount("Timo", "1234") || createAccount("Nils", "1234")) {
+            if (createAccount("Timo", "1234") || createAccount("Nils", "1234")|| createAccount("Matija", "1234")) {
                 new WaehrungsPresenter(new WaehrungsView());
                 setVisible(false);
             } else {
@@ -38,7 +38,7 @@ public class PasswordView extends JFrame {
         });
         loginToFontChangerButton.addActionListener(e -> {
 
-            if (createAccount("Timo", "1234") || createAccount("Nils", "1234")) {
+            if (createAccount("Timo", "1234") || createAccount("Nils", "1234") || createAccount("Matija", "1234")) {
                 new FontChangerPresenter(new FontChangerView());
                 setVisible(false);
             } else {
