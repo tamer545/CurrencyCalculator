@@ -4,6 +4,7 @@ import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
 import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -19,10 +20,12 @@ public class WaehrungsView extends JFrame {
     private JLabel waehrungTextLabel;
     private JLabel errorLabel;
     private JButton returnToLoginButton;
+    private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public WaehrungsView() {
         super("Währungsrechner by @Timo");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         setContentPane(mainPanel);
         setSize(700, 250);
         setVisible(true);

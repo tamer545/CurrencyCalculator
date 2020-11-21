@@ -4,8 +4,6 @@ import waehrungsrechner.fontChanger.FontChangerEnum;
 import waehrungsrechner.fontChanger.FontChangerPresenter;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -18,10 +16,12 @@ public class FontChangerView extends JFrame {
     private JButton generateTextButton;
     private JTextField outputTextField;
     private JButton returnToLoginButton;
+    private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public FontChangerView() {
         super("Font Changer by @Timo");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         setContentPane(mainPanel);
         setSize(700, 250);
         setVisible(true);
