@@ -62,6 +62,13 @@ public class FontChangerView extends JFrame {
             }
         });
 
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
+            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                returnToLoginButton.doClick();
+            }
+            return false;
+        });
+
     }
     public void setPresenter(FontChangerPresenter presenter) {
         this.presenter = presenter;
