@@ -15,7 +15,8 @@ public class FontChangerPresenter {
     public void generate(FontChangerEnum comboBoxEnum){
         switch (comboBoxEnum) {
             case AcmeFont -> view.setOutputFont(new Font("AcmeFont", Font.BOLD, 14));
-            case Bauhaus93 -> view.setOutputFont(new Font("Bauhaus93", Font.BOLD, 14));
+            case Bauhaus93 -> view.setOutputFont(new Font("Bauhaus 93", Font.BOLD, 14));
+            case BabyKruffy -> view.setOutputFont(new Font("Baby Kruffy", Font.BOLD, 14));
 
 
         };

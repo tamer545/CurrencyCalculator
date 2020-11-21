@@ -4,6 +4,8 @@ import waehrungsrechner.fontChanger.FontChangerEnum;
 import waehrungsrechner.fontChanger.FontChangerPresenter;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class FontChangerView extends JFrame {
@@ -12,7 +14,7 @@ public class FontChangerView extends JFrame {
     private JComboBox fontComboBox;
     private JTextField inputText;
     private JButton generateTextButton;
-    private JLabel outputTextLabel;
+    private JTextField outputTextField;
 
     public FontChangerView() {
         super("Font Changer by @Timo");
@@ -25,17 +27,33 @@ public class FontChangerView extends JFrame {
 
         fontComboBox.addItem(FontChangerEnum.AcmeFont);
         fontComboBox.addItem(FontChangerEnum.Bauhaus93);
+        fontComboBox.addItem(FontChangerEnum.BabyKruffy);
 
 
         generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
+
+        inputText.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                generateTextButton.doClick();
+            }
+        });
+        fontComboBox.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                generateTextButton.doClick();
+            }
+        });
     }
     public void setPresenter(FontChangerPresenter presenter) {
         this.presenter = presenter;
     }
     public void setOutputFont(Font font){
-        outputTextLabel.setFont(font);
+        outputTextField.setFont(font);
     }
     public void setOutput(){
-        outputTextLabel.setText(inputText.getText());
+        outputTextField.setText(inputText.getText());
     }
 }
