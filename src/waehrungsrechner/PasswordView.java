@@ -15,13 +15,12 @@ public class PasswordView extends JFrame {
     private JPanel mainPanel;
     private JLabel wrongLoginField;
     private JButton loginToFontChangerButton;
-    private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 
     public PasswordView() {
         super("Account by @Timo");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        setLocationRelativeTo(null);
         setContentPane(mainPanel);
         setSize(500, 200);
         setVisible(true);

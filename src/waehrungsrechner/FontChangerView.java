@@ -16,12 +16,11 @@ public class FontChangerView extends JFrame {
     private JButton generateTextButton;
     private JTextField outputTextField;
     private JButton returnToLoginButton;
-    private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public FontChangerView() {
         super("Font Changer by @Timo");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        setLocationRelativeTo(null);
         setContentPane(mainPanel);
         setSize(700, 250);
         setVisible(true);
