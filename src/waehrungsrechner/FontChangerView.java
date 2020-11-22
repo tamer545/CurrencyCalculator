@@ -2,8 +2,11 @@ package waehrungsrechner;
 
 import waehrungsrechner.fontChanger.FontChangerEnum;
 import waehrungsrechner.fontChanger.FontChangerPresenter;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -16,6 +19,7 @@ public class FontChangerView extends JFrame {
     private JButton generateTextButton;
     private JTextField outputTextField;
     private JButton returnToLoginButton;
+    private JButton setFontButton;
 
     public FontChangerView() {
         super("Font Changer by @Timo");
@@ -67,7 +71,12 @@ public class FontChangerView extends JFrame {
                 }
             }
         });
-
+        setFontButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                presenter.setFont((FontChangerEnum) fontComboBox.getSelectedItem());
+            }
+        });
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 returnToLoginButton.doClick();
@@ -75,14 +84,26 @@ public class FontChangerView extends JFrame {
             return false;
         });
 
+
     }
+
     public void setPresenter(FontChangerPresenter presenter) {
         this.presenter = presenter;
     }
-    public void setOutputFont(Font font){
+
+    public void setOutputFont(Font font) {
         outputTextField.setFont(font);
     }
-    public void setOutput(){
+
+    public void setOutput() {
         outputTextField.setText(inputText.getText());
     }
+
+    public void setFontEveryhwere(Font font) {
+        fontComboBox.setFont(font);
+        generateTextButton.setFont(font);
+        returnToLoginButton.setFont(font);
+        setFontButton.setFont(font);
+    }
+
 }

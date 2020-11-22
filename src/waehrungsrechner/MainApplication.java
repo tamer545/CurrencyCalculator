@@ -1,6 +1,5 @@
 package waehrungsrechner;
 
-import waehrungsrechner.PasswordView;
 
 public class MainApplication {
 
