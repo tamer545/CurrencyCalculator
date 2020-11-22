@@ -49,6 +49,7 @@ public class PasswordView extends JFrame {
         openSettingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 new KeyBindsView();
             }
         });
