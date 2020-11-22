@@ -2,6 +2,7 @@ package waehrungsrechner;
 
 import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
 import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
+import waehrungsrechner.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,6 +55,10 @@ public class WaehrungsView extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     calculateButton.doClick();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_F) {
+                    setVisible(false);
+                    new FontChangerPresenter(new FontChangerView());
                 }
             }
         });

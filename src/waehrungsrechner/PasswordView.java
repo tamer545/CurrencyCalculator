@@ -5,6 +5,8 @@ import waehrungsrechner.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -15,6 +17,7 @@ public class PasswordView extends JFrame {
     private JPanel mainPanel;
     private JLabel wrongLoginField;
     private JComboBox loginComboBox;
+    private JButton openSettingsButton;
 
     public PasswordView() {
         super("Account by @Timo");
@@ -43,6 +46,12 @@ public class PasswordView extends JFrame {
                 wrongLoginField.setText("Wrong Login Data");
             }
         });
+        openSettingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new KeyBindsView();
+            }
+        });
 
 
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
@@ -59,6 +68,10 @@ public class PasswordView extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     passwordTextField.requestFocus();
                 }
+                if (e.getKeyCode() == KeyEvent.VK_S) {
+                    setVisible(false);
+                    new KeyBindsView();
+                }
             }
         });
 
@@ -68,6 +81,9 @@ public class PasswordView extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     loginButton.doClick();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    loginComboBox.requestFocus();
                 }
             }
         });
@@ -81,6 +97,7 @@ public class PasswordView extends JFrame {
                 }
             }
         });
+
 
     }
 

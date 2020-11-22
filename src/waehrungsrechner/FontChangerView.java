@@ -1,5 +1,6 @@
 package waehrungsrechner;
 
+import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
 import waehrungsrechner.fontChanger.FontChangerEnum;
 import waehrungsrechner.fontChanger.FontChangerPresenter;
 
@@ -47,6 +48,7 @@ public class FontChangerView extends JFrame {
         fontComboBox.addItem(FontChangerEnum.VenusRising);
         fontComboBox.addItem(FontChangerEnum.Woodcut);
 
+        inputText.requestFocus();
 
         generateTextButton.addActionListener(e -> presenter.generate((FontChangerEnum) fontComboBox.getSelectedItem()));
 
@@ -63,6 +65,10 @@ public class FontChangerView extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     generateTextButton.doClick();
                 }
+                if (e.getKeyCode() == KeyEvent.VK_C) {
+                    setVisible(false);
+                    new WaehrungsPresenter(new WaehrungsView());
+                }
             }
         });
         fontComboBox.addKeyListener(new KeyAdapter() {
@@ -74,46 +80,45 @@ public class FontChangerView extends JFrame {
                 }
             }
         });
-        darkModeCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (darkModeCheckBox.isSelected()) {
-                    mainPanel.setBackground(Color.DARK_GRAY);
-                    inputText.setBackground(Color.DARK_GRAY);
-                    inputText.setForeground(Color.WHITE);
-                    outputTextField.setBackground(Color.DARK_GRAY);
-                    outputTextField.setForeground(Color.WHITE);
-                    fontComboBox.setBackground(Color.DARK_GRAY);
-                    fontComboBox.setForeground(Color.WHITE);
-                    generateTextButton.setBackground(Color.DARK_GRAY);
-                    generateTextButton.setForeground(Color.WHITE);
-                    returnToLoginButton.setBackground(Color.DARK_GRAY);
-                    returnToLoginButton.setForeground(Color.WHITE);
-                    setFontButton.setBackground(Color.DARK_GRAY);
-                    setFontButton.setForeground(Color.WHITE);
-                    inputTextLabel.setForeground(Color.WHITE);
-                    outputTextLabel.setForeground(Color.WHITE);
-                    darkModeCheckBox.setForeground(Color.WHITE);
-                    darkModeCheckBox.setBackground(Color.BLACK);
-                } else {
-                    mainPanel.setBackground(new Color(94, 118, 138));
-                    inputText.setBackground(Color.WHITE);
-                    inputText.setForeground(Color.BLACK);
-                    outputTextField.setBackground(Color.WHITE);
-                    outputTextField.setForeground(Color.BLACK);
-                    fontComboBox.setBackground(Color.WHITE);
-                    fontComboBox.setForeground(Color.BLACK);
-                    generateTextButton.setBackground(new Color(66, 129, 157));
-                    generateTextButton.setForeground(Color.BLACK);
-                    returnToLoginButton.setBackground(new Color(66, 129, 157));
-                    returnToLoginButton.setForeground(Color.BLACK);
-                    setFontButton.setBackground(new Color(66, 129, 157));
-                    setFontButton.setForeground(Color.BLACK);
-                    inputTextLabel.setForeground(new Color(187, 187, 187));
-                    outputTextLabel.setForeground(new Color(187, 187, 187));
-                    darkModeCheckBox.setForeground(Color.BLACK);
-                    darkModeCheckBox.setBackground(new Color(66, 129, 157));
-                }
+
+
+        darkModeCheckBox.addActionListener(e -> {
+            if (darkModeCheckBox.isSelected()) {
+                mainPanel.setBackground(Color.DARK_GRAY);
+                inputText.setBackground(Color.DARK_GRAY);
+                inputText.setForeground(Color.WHITE);
+                outputTextField.setBackground(Color.DARK_GRAY);
+                outputTextField.setForeground(Color.WHITE);
+                fontComboBox.setBackground(Color.DARK_GRAY);
+                fontComboBox.setForeground(Color.WHITE);
+                generateTextButton.setBackground(Color.DARK_GRAY);
+                generateTextButton.setForeground(Color.WHITE);
+                returnToLoginButton.setBackground(Color.DARK_GRAY);
+                returnToLoginButton.setForeground(Color.WHITE);
+                setFontButton.setBackground(Color.DARK_GRAY);
+                setFontButton.setForeground(Color.WHITE);
+                inputTextLabel.setForeground(Color.WHITE);
+                outputTextLabel.setForeground(Color.WHITE);
+                darkModeCheckBox.setForeground(Color.WHITE);
+                darkModeCheckBox.setBackground(Color.BLACK);
+            } else {
+                mainPanel.setBackground(new Color(94, 118, 138));
+                inputText.setBackground(Color.WHITE);
+                inputText.setForeground(Color.BLACK);
+                outputTextField.setBackground(Color.WHITE);
+                outputTextField.setForeground(Color.BLACK);
+                fontComboBox.setBackground(Color.WHITE);
+                fontComboBox.setForeground(Color.BLACK);
+                generateTextButton.setBackground(new Color(66, 129, 157));
+                generateTextButton.setForeground(Color.BLACK);
+                returnToLoginButton.setBackground(new Color(66, 129, 157));
+                returnToLoginButton.setForeground(Color.BLACK);
+                setFontButton.setBackground(new Color(66, 129, 157));
+                setFontButton.setForeground(Color.BLACK);
+                inputTextLabel.setForeground(new Color(187, 187, 187));
+                outputTextLabel.setForeground(new Color(187, 187, 187));
+                darkModeCheckBox.setForeground(Color.BLACK);
+                darkModeCheckBox.setBackground(new Color(66, 129, 157));
             }
         });
         setFontButton.addActionListener(new ActionListener() {
