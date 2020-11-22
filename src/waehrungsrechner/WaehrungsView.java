@@ -66,7 +66,7 @@ public class WaehrungsView extends JFrame {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     setVisible(false);
-                    new PasswordView();
+                    returnToLoginButton.doClick();
                 }
             }
         });
