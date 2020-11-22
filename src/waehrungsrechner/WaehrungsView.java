@@ -6,8 +6,6 @@ import waehrungsrechner.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -16,7 +14,7 @@ public class WaehrungsView extends JFrame {
     private JTextField frTextField;
     private JPanel mainPanel;
     private JButton calculateButton;
-    private JComboBox comboBox2;
+    private JComboBox currenciesComboBox;
     private JLabel CHFLabel;
     private JLabel waehrungTextLabel;
     private JLabel errorLabel;
@@ -30,19 +28,21 @@ public class WaehrungsView extends JFrame {
         setSize(700, 250);
         setVisible(true);
 
-        comboBox2.add(new JScrollPane());
+        currenciesComboBox.add(new JScrollPane());
 
-        comboBox2.addItem(WaehrungsEnum.CHF);
-        comboBox2.addItem(WaehrungsEnum.GBP);
-        comboBox2.addItem(WaehrungsEnum.EURO);
-        comboBox2.addItem(WaehrungsEnum.JPY);
-        comboBox2.addItem(WaehrungsEnum.USD);
-        comboBox2.addItem(WaehrungsEnum.CAD);
-        comboBox2.addItem(WaehrungsEnum.SAR);
-        comboBox2.addItem(WaehrungsEnum.SKR);
-        comboBox2.addItem(WaehrungsEnum.CNH);
+        currenciesComboBox.addItem(WaehrungsEnum.CHF);
+        currenciesComboBox.addItem(WaehrungsEnum.GBP);
+        currenciesComboBox.addItem(WaehrungsEnum.EURO);
+        currenciesComboBox.addItem(WaehrungsEnum.JPY);
+        currenciesComboBox.addItem(WaehrungsEnum.USD);
+        currenciesComboBox.addItem(WaehrungsEnum.CAD);
+        currenciesComboBox.addItem(WaehrungsEnum.SAR);
+        currenciesComboBox.addItem(WaehrungsEnum.SKR);
+        currenciesComboBox.addItem(WaehrungsEnum.CNH);
 
-        calculateButton.addActionListener(e -> presenter.calculate(frTextField.getText(), (WaehrungsEnum) comboBox2.getSelectedItem()));
+        frTextField.requestFocus();
+
+        calculateButton.addActionListener(e -> presenter.calculate(frTextField.getText(), (WaehrungsEnum) currenciesComboBox.getSelectedItem()));
 
         returnToLoginButton.addActionListener(e -> {
             new PasswordView();
@@ -60,9 +60,13 @@ public class WaehrungsView extends JFrame {
                     setVisible(false);
                     new FontChangerPresenter(new FontChangerView());
                 }
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    setVisible(false);
+                    currenciesComboBox.requestFocus();
+                }
             }
         });
-        comboBox2.addKeyListener(new KeyAdapter() {
+        currenciesComboBox.addKeyListener(new KeyAdapter() {
 
             @Override
             public void keyPressed(KeyEvent e) {
@@ -74,7 +78,7 @@ public class WaehrungsView extends JFrame {
 
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                returnToLoginButton.doClick();
+                new PasswordView();
             }
             return false;
         });
