@@ -64,6 +64,10 @@ public class WaehrungsView extends JFrame {
                     setVisible(false);
                     currenciesComboBox.requestFocus();
                 }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    setVisible(false);
+                    new PasswordView();
+                }
             }
         });
         currenciesComboBox.addKeyListener(new KeyAdapter() {
@@ -76,12 +80,6 @@ public class WaehrungsView extends JFrame {
             }
         });
 
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                new PasswordView();
-            }
-            return false;
-        });
 
     }
 
