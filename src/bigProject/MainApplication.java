@@ -1,4 +1,4 @@
-package waehrungsrechner;
+package bigProject;
 
 
 public class MainApplication {

@@ -1,6 +1,6 @@
-package waehrungsrechner.fontChanger;
+package bigProject.fontChanger;
 
-import waehrungsrechner.FontChangerView;
+import bigProject.FontChangerView;
 
 import java.awt.*;
 

@@ -1,10 +1,9 @@
-package waehrungsrechner;
+package bigProject;
 
-import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
-import waehrungsrechner.fontChanger.FontChangerPresenter;
+import bigProject.currenciesCalculator.WaehrungsPresenter;
+import bigProject.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -33,7 +32,7 @@ public class PasswordView extends JFrame {
 
         loginButton.addActionListener(e -> {
 
-            if (createAccount("Timo", "1234") || createAccount("Nils", "1234") || createAccount("Matija", "1234")) {
+            if (createAccount("Timo", "1234")) {
                 setVisible(false);
 
                 if (loginComboBox.getSelectedItem().equals("Font Changer")) {
@@ -81,6 +80,9 @@ public class PasswordView extends JFrame {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     loginComboBox.requestFocus();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    dispose();
                 }
             }
         });

@@ -1,11 +1,10 @@
-package waehrungsrechner;
+package bigProject;
 
-import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
-import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
-import waehrungsrechner.fontChanger.FontChangerPresenter;
+import bigProject.currenciesCalculator.WaehrungsEnum;
+import bigProject.currenciesCalculator.WaehrungsPresenter;
+import bigProject.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -76,6 +75,10 @@ public class WaehrungsView extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     calculateButton.doClick();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    setVisible(false);
+                    returnToLoginButton.doClick();
                 }
             }
         });

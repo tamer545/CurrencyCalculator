@@ -1,8 +1,8 @@
-package waehrungsrechner;
+package bigProject;
 
-import waehrungsrechner.currenciesCalculator.WaehrungsPresenter;
-import waehrungsrechner.fontChanger.FontChangerEnum;
-import waehrungsrechner.fontChanger.FontChangerPresenter;
+import bigProject.currenciesCalculator.WaehrungsPresenter;
+import bigProject.fontChanger.FontChangerEnum;
+import bigProject.fontChanger.FontChangerPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -69,6 +69,10 @@ public class FontChangerView extends JFrame {
                     setVisible(false);
                     new WaehrungsPresenter(new WaehrungsView());
                 }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    setVisible(false);
+                    returnToLoginButton.doClick();
+                }
             }
         });
         fontComboBox.addKeyListener(new KeyAdapter() {
@@ -77,6 +81,10 @@ public class FontChangerView extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     generateTextButton.doClick();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    setVisible(false);
+                    returnToLoginButton.doClick();
                 }
             }
         });
@@ -126,12 +134,6 @@ public class FontChangerView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 presenter.setFont((FontChangerEnum) fontComboBox.getSelectedItem());
             }
-        });
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                returnToLoginButton.doClick();
-            }
-            return false;
         });
 
 

@@ -1,4 +1,4 @@
-package waehrungsrechner;
+package bigProject;
 
 import javax.swing.*;
 import java.awt.*;

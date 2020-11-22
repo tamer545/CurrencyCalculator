@@ -1,7 +1,6 @@
-package waehrungsrechner.currenciesCalculator;
+package bigProject.currenciesCalculator;
 
-import waehrungsrechner.WaehrungsView;
-import waehrungsrechner.currenciesCalculator.WaehrungsEnum;
+import bigProject.WaehrungsView;
 
 public class WaehrungsPresenter {
 
