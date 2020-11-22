@@ -9,13 +9,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class PasswordView extends JFrame {
-    private JPasswordField passwordField1;
+    private JPasswordField passwordTextField;
     private JTextField usernameTextField;
-    private JButton loginToCurrenciesButton;
+    private JButton loginButton;
     private JPanel mainPanel;
     private JLabel wrongLoginField;
-    private JButton loginToFontChangerButton;
-
+    private JComboBox loginComboBox;
 
     public PasswordView() {
         super("Account by @Timo");
@@ -25,21 +24,21 @@ public class PasswordView extends JFrame {
         setSize(500, 200);
         setVisible(true);
 
+        loginComboBox.addItem("Font Changer");
+        loginComboBox.addItem("Currencies Calculator");
 
-        loginToCurrenciesButton.addActionListener(e -> {
 
-            if (createAccount("Timo", "1234") || createAccount("Nils", "1234")|| createAccount("Matija", "1234")) {
-                new WaehrungsPresenter(new WaehrungsView());
-                setVisible(false);
-            } else {
-                wrongLoginField.setText("Wrong Login Data");
-            }
-        });
-        loginToFontChangerButton.addActionListener(e -> {
+        loginButton.addActionListener(e -> {
 
             if (createAccount("Timo", "1234") || createAccount("Nils", "1234") || createAccount("Matija", "1234")) {
-                new FontChangerPresenter(new FontChangerView());
                 setVisible(false);
+
+                if (loginComboBox.getSelectedItem().equals("Font Changer")) {
+                    new FontChangerPresenter(new FontChangerView());
+                } else {
+                    new WaehrungsPresenter(new WaehrungsView());
+                }
+
             } else {
                 wrongLoginField.setText("Wrong Login Data");
             }
@@ -58,7 +57,27 @@ public class PasswordView extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    passwordField1.requestFocus();
+                    passwordTextField.requestFocus();
+                }
+            }
+        });
+
+        passwordTextField.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    loginButton.doClick();
+                }
+            }
+        });
+
+        loginComboBox.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    loginButton.doClick();
                 }
             }
         });
@@ -66,7 +85,7 @@ public class PasswordView extends JFrame {
     }
 
     public boolean createAccount(String username, String password) {
-        return usernameTextField.getText().equalsIgnoreCase(username) && passwordField1.getText().equalsIgnoreCase(password);
+        return usernameTextField.getText().equalsIgnoreCase(username) && passwordTextField.getText().equalsIgnoreCase(password);
     }
 
 
