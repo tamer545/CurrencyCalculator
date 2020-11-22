@@ -55,13 +55,6 @@ public class PasswordView extends JFrame {
         });
 
 
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                dispose();
-            }
-            return false;
-        });
-
         usernameTextField.addKeyListener(new KeyAdapter() {
 
             @Override
@@ -72,6 +65,9 @@ public class PasswordView extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_S) {
                     setVisible(false);
                     new KeyBindsView();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    dispose();
                 }
             }
         });
