@@ -25,6 +25,11 @@ public class FontChangerView extends JFrame {
     private JLabel inputTextLabel;
     private JLabel outputTextLabel;
 
+    private boolean isDarkModeOn = false;
+    private Color darkTurkis = new Color(66, 129, 157);
+    private Color turkis = new Color(94, 118, 138);
+    private Color white = new Color(187, 187, 187);
+
     public FontChangerView() {
         super("Font Changer by @Timo");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -94,39 +99,41 @@ public class FontChangerView extends JFrame {
             if (darkModeCheckBox.isSelected()) {
                 mainPanel.setBackground(Color.DARK_GRAY);
                 inputText.setBackground(Color.DARK_GRAY);
-                inputText.setForeground(Color.WHITE);
+                inputText.setForeground(white);
                 outputTextField.setBackground(Color.DARK_GRAY);
-                outputTextField.setForeground(Color.WHITE);
+                outputTextField.setForeground(white);
                 fontComboBox.setBackground(Color.DARK_GRAY);
-                fontComboBox.setForeground(Color.WHITE);
+                fontComboBox.setForeground(white);
                 generateTextButton.setBackground(Color.DARK_GRAY);
-                generateTextButton.setForeground(Color.WHITE);
+                generateTextButton.setForeground(white);
                 returnToLoginButton.setBackground(Color.DARK_GRAY);
-                returnToLoginButton.setForeground(Color.WHITE);
+                returnToLoginButton.setForeground(white);
                 setFontButton.setBackground(Color.DARK_GRAY);
-                setFontButton.setForeground(Color.WHITE);
-                inputTextLabel.setForeground(Color.WHITE);
-                outputTextLabel.setForeground(Color.WHITE);
-                darkModeCheckBox.setForeground(Color.WHITE);
-                darkModeCheckBox.setBackground(Color.BLACK);
+                setFontButton.setForeground(white);
+                inputTextLabel.setForeground(white);
+                outputTextLabel.setForeground(white);
+                darkModeCheckBox.setForeground(white);
+                darkModeCheckBox.setBackground(white);
+
+                isDarkModeOn = true;
             } else {
-                mainPanel.setBackground(new Color(94, 118, 138));
-                inputText.setBackground(Color.WHITE);
+                mainPanel.setBackground(turkis);
+                inputText.setBackground(white);
                 inputText.setForeground(Color.BLACK);
-                outputTextField.setBackground(Color.WHITE);
+                outputTextField.setBackground(white);
                 outputTextField.setForeground(Color.BLACK);
-                fontComboBox.setBackground(Color.WHITE);
+                fontComboBox.setBackground(white);
                 fontComboBox.setForeground(Color.BLACK);
-                generateTextButton.setBackground(new Color(66, 129, 157));
+                generateTextButton.setBackground(darkTurkis);
                 generateTextButton.setForeground(Color.BLACK);
-                returnToLoginButton.setBackground(new Color(66, 129, 157));
+                returnToLoginButton.setBackground(darkTurkis);
                 returnToLoginButton.setForeground(Color.BLACK);
-                setFontButton.setBackground(new Color(66, 129, 157));
+                setFontButton.setBackground(darkTurkis);
                 setFontButton.setForeground(Color.BLACK);
-                inputTextLabel.setForeground(new Color(187, 187, 187));
-                outputTextLabel.setForeground(new Color(187, 187, 187));
+                inputTextLabel.setForeground(white);
+                outputTextLabel.setForeground(white);
                 darkModeCheckBox.setForeground(Color.BLACK);
-                darkModeCheckBox.setBackground(new Color(66, 129, 157));
+                darkModeCheckBox.setBackground(darkTurkis);
             }
         });
         setFontButton.addActionListener(new ActionListener() {

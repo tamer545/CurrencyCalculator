@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="TamersApp:jar">
-    <output-path>$USER_HOME$/Desktop/TamersApp_jar</output-path>
-    <root id="archive" name="CurrencyCalculator.jar">
-      <element id="module-output" name="CurrencyCalculator" />
-    </root>
-  </artifact>
-</component>
