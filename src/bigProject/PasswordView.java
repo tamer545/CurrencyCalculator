@@ -17,7 +17,6 @@ public class PasswordView extends JFrame {
     private JLabel wrongLoginField;
     private JComboBox loginComboBox;
     private JButton openSettingsButton;
-    private KeyBindsView keyBindsView = new KeyBindsView();
 
     public PasswordView() {
         super("Account by @Timo");
